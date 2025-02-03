@@ -63,10 +63,18 @@ public class ClienteService {
         }
     }
 
-
     private String encryptPassword(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(password);
         return encodedPassword;
     }
+
+    public Long contarClientes() {
+        return clienteRepository.count();
+    }
+
+    public List<Cliente> buscarPorNome(String name) {
+        return clienteRepository.findByName(name);
+    }
+
 }

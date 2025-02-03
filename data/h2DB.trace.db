@@ -2960,3 +2960,6 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/igor/De
 	at org.h2.mvstore.FileStore.open(FileStore.java:128)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
 	... 154 more
+2025-02-02 20:21:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTES" not found; SQL statement:
+SELECT COUNT(*) FROM clientes [42102-214]

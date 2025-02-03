@@ -13,4 +13,6 @@ public interface ClienteRepository {
     Cliente update(Cliente user);
     boolean existsByEmail(String email);
     boolean existsByEmailWithNotThisId(String email, Long id);
+    Long count();
+    List<Cliente> findByName(String name);
 }

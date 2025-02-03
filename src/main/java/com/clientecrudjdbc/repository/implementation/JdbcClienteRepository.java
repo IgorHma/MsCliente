@@ -98,4 +98,16 @@ public class JdbcClienteRepository implements ClienteRepository {
         }, new Object[] { email, id } );
         return count > 0;
     }
+
+    public Long count() {
+        return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM cliente", Long.class);
+    }
+
+    @Override
+    public List<Cliente> findByName(String name) {
+        String sql = "SELECT * FROM cliente WHERE LOWER(name) LIKE LOWER(?)";
+        return jdbcTemplate.query(sql, new Object[]{"%" + name + "%"}, (rs, rowNum) ->
+                new Cliente(rs.getLong("id"), rs.getString("name"), rs.getString("email"), rs.getString("password")));
+    }
+
 }
